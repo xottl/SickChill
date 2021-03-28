@@ -21,6 +21,7 @@ jobs:
         with:
           ref: master
           path: sickchill
+          fetch-depth: 0
       - name: Publish
         env:
           TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
@@ -30,4 +31,6 @@ jobs:
           git config --global user.name miigotu
           git config --global user.email miigotu@gmail.com
           python setup.py sdist bdist_wheel
-          twine upload dist/*
+          VERSION=$(grep -oP '\d+\.\d+\.\d+\.post\d+' sickchill/version.py)
+          echo "Version is $VERSION"
+          echo "twine upload dist/*"
