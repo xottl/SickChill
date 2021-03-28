@@ -19,6 +19,13 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('sickchill/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
+      - name: Restore pip cache
+        uses: actions/cache@v2
+        with:
+          path: $(python -m pip cache dir)
+          key: ${{ runner.os }}-pip-${{ hashFiles('sickchill/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -37,7 +44,14 @@ jobs:
         run: |
           git config --global user.name miigotu
           git config --global user.email miigotu@gmail.com
+          git checkout master
+          git reset --hard origin/develop
           python setup.py sdist bdist_wheel
           VERSION=$(grep -oP '\d+\.\d+\.\d+\.post\d+' sickchill/version.py)
+          echo git commit -asm "Release $VERSION"
+          echo git push origin master
+          git checkout develop
+          git reset --hard master
+          echo git push origin develop
           echo "Version is $VERSION"
           echo "twine upload dist/*"
