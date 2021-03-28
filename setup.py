@@ -32,6 +32,6 @@ if 'setup.py' in sys.argv[0]:
             'write_to': 'sickchill/version.py',
             'write_to_template': '__version__ = "{version}"',
             'tag_regex': r'^(?P<prefix>v)?(?P<version>[^\+]+)(?P<suffix>.*)?$',
-            'local_scheme': 'no-local-version'
+            'local_scheme': 'node-and-date'
         }
     )
