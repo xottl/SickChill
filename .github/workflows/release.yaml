@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -U setuptools wheel twine tox
+          pip install -U setuptools wheel twine tox build
       - name: Checkout SickChill
         uses: actions/checkout@v2
         with:
@@ -40,8 +40,9 @@ jobs:
           git checkout master
           git reset --hard origin/develop
           python setup.py sdist bdist_wheel
-          VERSION=$(grep -oP '\d+\.\d+\.\d+\.post\d+' sickchill/version.py)
-          echo git commit -asm "Release $VERSION"
+          VERSION=$(grep -oP '\d+\.\d+\.\d+\.post\d+[^"]*' sickchill/version.py)
+          git commit -asm "Release $VERSION"
+          git tag $VERSION
           echo git push origin master
           git checkout develop
           git reset --hard master
