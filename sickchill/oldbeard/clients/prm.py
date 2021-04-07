@@ -1,4 +1,5 @@
 from sickchill.oldbeard.clients.generic import GenericClient
+from urllib.parse import urljoin
 
 
 class Client(GenericClient):
@@ -21,12 +22,12 @@ class Client(GenericClient):
 
     def _add_torrent_uri(self, result):
 
-        self.url = self.host + "submit"
-        params = {"q": "dllink " + result.url}
+        self.url = url.join(self.host, "add")"
+        params = {"url": result.url}
         return self._request(method="get", params=params)
 
     def _add_torrent_file(self, result):
 
-        self.url = self.host + "submit"
-        params = {"q": "dllink " + result.url}
+        self.url = url.join(self.host, "add")"
+        params = {"url": result.url}
         return self._request(method="get", params=params)

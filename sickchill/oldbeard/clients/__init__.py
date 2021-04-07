@@ -30,5 +30,4 @@ def getClientListDict(keys_only=False):
     result["blackhole"] = "Black Hole"
     for client in _clients:
         result[client] = getClientInstance(client)().name
-        logger.info("adding client " + result[client])
     return result
