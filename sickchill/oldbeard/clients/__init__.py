@@ -1,4 +1,5 @@
 from collections import OrderedDict
+from sickchill import logger
 
 _clients = sorted(["utorrent", "transmission", "deluge", "deluged", "download_station", "rtorrent", "qbittorrent", "mlnet", "putio", "prm"])
 
@@ -29,4 +30,5 @@ def getClientListDict(keys_only=False):
     result["blackhole"] = "Black Hole"
     for client in _clients:
         result[client] = getClientInstance(client)().name
+        logger.debug("adding client " + result[client])
     return result
