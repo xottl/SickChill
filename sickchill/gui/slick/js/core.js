@@ -2002,6 +2002,12 @@ const SICKCHILL = {
                         $('#torrent_label_option').hide();
                         $('#torrent_paused_option').hide();
                         $('#host_desc_torrent').text(_('URL to your MLDonkey (e.g. http://localhost:4080)'));
+					} else if (selectedProvider.toLowerCase() === 'prm') {
+                        client = 'prm';
+                        $('#torrent_path_option').hide();
+                        $('#torrent_label_option').hide();
+                        $('#torrent_paused_option').hide();
+                        $('#host_desc_torrent').text(_('URL to your Premiumize Handler (e.g. http://192.168.178.101:8000)'));
                     } else if (selectedProvider.toLowerCase() === 'putio') {
                         client = 'putio';
                         $('#torrent_path_option').hide();

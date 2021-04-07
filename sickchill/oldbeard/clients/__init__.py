@@ -1,6 +1,6 @@
 from collections import OrderedDict
 
-_clients = sorted(["utorrent", "transmission", "deluge", "deluged", "download_station", "rtorrent", "qbittorrent", "mlnet", "putio"])
+_clients = sorted(["utorrent", "transmission", "deluge", "deluged", "download_station", "rtorrent", "qbittorrent", "mlnet", "putio", "prm"])
 
 
 default_host = {
@@ -13,6 +13,7 @@ default_host = {
     "qbittorrent": "http://localhost:8080",
     "mlnet": "http://localhost:4080",
     "putio": "https://api.put.io/login",
+    "prm": "http://localhost:8000"
 }
 
 

@@ -12,6 +12,7 @@ clients = RegistrableExtensionManager(
         "rtorrent = oldbeard.clients.rtorrent:Client",
         "transmission = oldbeard.clients.transmission:Client",
         "utorrent = oldbeard.clients.utorrent:Client",
+        "prm" = "oldbeard.clients.prm:Client"
     ],
 )
 
