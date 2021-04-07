@@ -22,12 +22,12 @@ class Client(GenericClient):
 
     def _add_torrent_uri(self, result):
 
-        self.url = url.join(self.host, "add")
+        self.url = urljoin(self.host, "add")
         params = {"url": result.url}
         return self._request(method="get", params=params)
 
     def _add_torrent_file(self, result):
 
-        self.url = url.join(self.host, "add")
+        self.url = urljoin(self.host, "add")
         params = {"url": result.url}
         return self._request(method="get", params=params)
