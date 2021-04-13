@@ -15,6 +15,7 @@ import validators
 
 import sickchill.oldbeard.providers
 from sickchill import movies, settings
+from ....conftest import SickChillTestDBCase
 
 settings.CPU_PRESET = "NORMAL"
 
@@ -54,7 +55,7 @@ magnet_regex = re.compile(r"magnet:\?xt=urn:btih:\w{32,40}(:?&dn=[\w. %+-]+)*(:?
 
 
 class BaseParser(type):
-    class TestCase(unittest.TestCase):
+    class TestCase(SickChillTestDBCase):
         provider = None
 
         def __init__(self, test):

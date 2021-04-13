@@ -15,7 +15,7 @@ class TorrentBasicTests(conftest.SickChillTestDBCase):
     @classmethod
     def setUpClass(cls):
         cls.shows = []
-
+        super().setUp(cls)
         show = TVShow(1, 121361)
         show.name = "Italian Works"
         show.episodes = []
