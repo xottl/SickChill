@@ -1,5 +1,6 @@
+from urllib.parse import unquote, urljoin
+
 from sickchill.oldbeard.clients.generic import GenericClient
-from urllib.parse import urljoin, unquote
 
 
 class Client(GenericClient):

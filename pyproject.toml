@@ -50,7 +50,8 @@ exclude = [
     "docs/source/conf.py",
     "build",
     "dist",
-    "lib3"
+    "lib3",
+    ".venv"
 ]
 inline-quotes = "double"
 docstring-convention = "numpy"

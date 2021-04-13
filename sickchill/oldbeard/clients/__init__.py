@@ -1,5 +1,4 @@
 from collections import OrderedDict
-from sickchill import logger
 
 _clients = sorted(["utorrent", "transmission", "deluge", "deluged", "download_station", "rtorrent", "qbittorrent", "mlnet", "putio", "prm"])
 
